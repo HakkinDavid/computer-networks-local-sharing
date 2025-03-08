@@ -1,8 +1,13 @@
 import socket
+import sys
+
+if len(sys.argv) != 2:
+    print("Usage: python client.py <PORT>")
+    sys.exit(1)
 
 # Configuración del servidor
 HOST = '0.0.0.0'  # Escucha en todas las interfaces
-PORT = 12345
+PORT = int(sys.argv[1])
 DIRECTORY = "server_files"  # Carpeta donde se guardarán los archivos
 
 import os

@@ -1,7 +1,12 @@
 import socket
+import sys
 
-HOST = '10.12.21.197'
-PORT = 12345
+if len(sys.argv) != 3:
+    print("Usage: python client.py <HOST> <PORT>")
+    sys.exit(1)
+
+HOST = sys.argv[1]
+PORT = int(sys.argv[2])
 
 def client():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
