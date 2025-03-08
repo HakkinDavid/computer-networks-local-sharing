@@ -1,6 +1,6 @@
 import socket
 
-HOST = '10.12.21.197'  # Escucha en todas las interfaces
+HOST = '10.12.21.197'
 PORT = 12345
 
 def client():
