@@ -1,4 +1,4 @@
-from pybluez import bluetooth
+import bluetooth
 import os
 
 DIRECTORY = "server_files"
