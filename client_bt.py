@@ -2,7 +2,7 @@ import bluetooth
 import sys
 import os
 
-DIRECTORY = "user_files"
+DIRECTORY = "files"
 if not os.path.exists(DIRECTORY):
     os.makedirs(DIRECTORY)
 
