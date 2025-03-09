@@ -5,7 +5,7 @@ server_mac = sys.argv[1] if len(sys.argv) > 1 else input("Enter server MAC addre
 port = sys.argv[2] if len(sys.argv) > 2 else input("Enter server port: ")
 
 client_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-client_sock.connect((server_mac, port))
+client_sock.connect((server_mac, int(port)))
 print("Connected to server")
 
 while True:
@@ -23,7 +23,7 @@ while True:
     elif command.startswith("UPLOAD "):
         filename = command.split(" ")[1]
         with open(filename, "rb") as f:
-            client_sock.sendall(f.read())
+            client_sock.send(f.read())
         print("Upload completed")
     elif command == "EXIT":
         break

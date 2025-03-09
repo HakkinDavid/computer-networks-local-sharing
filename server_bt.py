@@ -32,7 +32,7 @@ def handle_client(sock):
             filepath = os.path.join(DIRECTORY, filename)
             if os.path.exists(filepath):
                 with open(filepath, "rb") as f:
-                    sock.sendall(f.read())
+                    sock.send(f.read())
             else:
                 sock.send(b"ERROR: File not found")
         elif data.startswith("UPLOAD "):
