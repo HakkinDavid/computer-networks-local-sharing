@@ -20,7 +20,7 @@ try:
 
         if command == "LIST":
             data = client_sock.recv(1024).decode()
-            print("Files on server:\n" + data)
+            print("Files on server:" + data)
         elif command.startswith("DOWNLOAD "):
             filename = command.split(" ")[1]
             with open(os.path.join(DIRECTORY, filename), "wb") as f:
@@ -34,10 +34,8 @@ try:
             filename = command.split(" ")[1]
             if os.path.exists(os.path.join(DIRECTORY, filename)):
                 with open(os.path.join(DIRECTORY, filename), "rb") as f:
-                    chunk = f.read(1024)
-                    while chunk:
+                    while chunk := f.read(1024):
                         client_sock.send(chunk)
-                        chunk = f.read(1024)
                 print("Upload completed")
             else:
                 print("File not found")

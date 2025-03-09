@@ -34,10 +34,8 @@ def handle_client(sock):
                 filepath = os.path.join(DIRECTORY, filename)
                 if os.path.exists(filepath):
                     with open(filepath, "rb") as f:
-                        chunk = f.read(1024)
-                        while chunk:
+                        while chunk := f.read(1024):
                             sock.send(chunk)
-                            chunk = f.read(1024)
                 else:
                     sock.send(b"ERROR: File not found")
             elif data.startswith("UPLOAD "):
