@@ -1,7 +1,7 @@
 import bluetooth
 import os
 
-DIRECTORY = "server_files"
+DIRECTORY = "files"
 if not os.path.exists(DIRECTORY):
     os.makedirs(DIRECTORY)
 

@@ -8,7 +8,7 @@ if len(sys.argv) != 2:
 # Configuración del servidor
 HOST = '0.0.0.0'  # Escucha en todas las interfaces
 PORT = int(sys.argv[1])
-DIRECTORY = "server_files"  # Carpeta donde se guardarán los archivos
+DIRECTORY = "files"  # Carpeta donde se guardarán los archivos
 
 import os
 if not os.path.exists(DIRECTORY):

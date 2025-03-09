@@ -1,5 +1,10 @@
 import bluetooth
 import sys
+import os
+
+DIRECTORY = "user_files"
+if not os.path.exists(DIRECTORY):
+    os.makedirs(DIRECTORY)
 
 server_mac = sys.argv[1] if len(sys.argv) > 1 else input("Enter server MAC address: ")
 port = sys.argv[2] if len(sys.argv) > 2 else input("Enter server port: ")
@@ -17,12 +22,12 @@ while True:
         print("Files on server:\n" + data)
     elif command.startswith("DOWNLOAD "):
         filename = command.split(" ")[1]
-        with open(filename, "wb") as f:
+        with open(os.path.join(DIRECTORY, filename), "wb") as f:
             f.write(client_sock.recv(1024))
         print("Download completed")
     elif command.startswith("UPLOAD "):
         filename = command.split(" ")[1]
-        with open(filename, "rb") as f:
+        with open(os.path.join(DIRECTORY, filename), "rb") as f:
             client_sock.send(f.read())
         print("Upload completed")
     elif command == "EXIT":
