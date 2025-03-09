@@ -20,7 +20,8 @@ try:
 
         if command == "LIST":
             data = client_sock.recv(1024).decode()
-            print("Files on server:" + data)
+            print("Files on server:
+" + data)
         elif command.startswith("DOWNLOAD "):
             filename = command.split(" ")[1]
             with open(os.path.join(DIRECTORY, filename), "wb") as f:
