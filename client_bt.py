@@ -2,7 +2,7 @@ import bluetooth
 import sys
 
 server_mac = sys.argv[1] if len(sys.argv) > 1 else input("Enter server MAC address: ")
-port = 1
+port = sys.argv[2] if len(sys.argv) > 2 else input("Enter server port: ")
 
 client_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 client_sock.connect((server_mac, port))
