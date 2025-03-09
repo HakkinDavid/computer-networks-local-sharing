@@ -18,7 +18,7 @@ while True:
     client_sock.send(command.encode())
     
     if command == "LIST":
-        data = client_sock.recv(1024).decode()
+        data = client_sock.recv(1024).decode(errors='ignore')
         print("Files on server:\n" + data)
     elif command.startswith("DOWNLOAD "):
         filename = command.split(" ")[1]

@@ -21,7 +21,7 @@ print(f"Accepted connection from {client_info}")
 
 def handle_client(sock):
     while True:
-        data = sock.recv(1024).decode()
+        data = sock.recv(1024).decode(errors='ignore')
         if not data:
             break
         if data == "LIST":
